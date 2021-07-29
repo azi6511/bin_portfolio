@@ -1,4 +1,5 @@
 """백준 5585.ipynb
+#거스름돈
 
 change = 1000-int(input())
 count=0

@@ -13,3 +13,4 @@ for i in range(len(s)):
 result=sum(total_list)
 print(result)
 
+#예약어 쓰지 말자(sum같은거!)

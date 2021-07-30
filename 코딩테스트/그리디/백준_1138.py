@@ -18,5 +18,5 @@ for i in range(1,N+1):
     elif result[j]==0:
       cnt+=1
 
-print(*result)
+print(*result)      #int(result)하면 시간초과 나옴.. >>    (*result)이런식으로 하자!
 

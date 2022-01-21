@@ -1,0 +1,34 @@
+# 백준_21918
+# 전구
+
+N , M = input().split()
+
+data = list(map(int, input().split()))
+
+
+
+def factory(a,b,c, data):
+    if a==1:
+        data[b-1]=c
+        
+    elif a==2:
+        for i in range(b-1,c):
+            if data[i]==0:
+                data[i]=1
+            else:
+                data[i]=0
+                
+    elif a==3:
+        for i in range(b-1,c):
+            data[i]=0
+    elif a==4:
+        for i in range(b-1,c):
+            data[i]=1
+        return data
+
+
+for i in range(int(M)):
+    a,b,c = list(map(int, input().split()))
+    factory(a,b,c,data)   
+    
+print(*data)

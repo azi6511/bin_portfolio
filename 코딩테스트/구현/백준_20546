@@ -1,0 +1,47 @@
+# 백준_20546
+# 기적의 매매법
+
+money = int(input())
+data = list(map(int, input().split()))
+
+jun_total=0
+jun_stock=0
+jun_money=0
+
+def jun(money,data):
+    
+    count=0
+    for i in range(len(data)):
+    
+        temp = money//data[i]
+        money -= temp*data[i]
+        count+=temp
+            
+    money+=(count*data[-1])
+    return money
+
+            
+
+
+def sung(money,data):
+    
+    count=0
+    for i in range(len(data)-3):
+        if data[i]>data[i+1] and data[i+1]>data[i+2]: #매수
+            temp = money//data[i+3]
+            money -= temp*data[i+3]
+            count+=temp
+            
+        if data[i]<data[i+1] and data[i+1]<data[i+2]: #매도
+            money+=data[i+3]*count
+            count=0
+            
+    money+=(count*data[-1])
+    return money
+
+if jun(money,data)>sung(money,data):
+    print("BNP")
+elif jun(money,data)==sung(money,data):
+    print("SAMESAME")
+elif jun(money,data)<sung(money,data):
+    print("TIMING")

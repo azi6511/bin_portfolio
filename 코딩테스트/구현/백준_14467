@@ -1,0 +1,20 @@
+# 백준 14467
+# 소가 길을 건나간 이유1
+
+N = int(input())
+
+ans= []
+count=0
+
+for i in range(N):
+    a,b = list(map(int, input().split()))
+    twin= [a]+[b]
+    ans.append(twin)
+
+c = sorted(ans, key=lambda x : x[0])
+
+for i in range(len(c)-1):
+    if c[i+1][0]==c[i][0] and c[i+1][1]!=c[i][1]:
+        count+=1
+
+print(count)

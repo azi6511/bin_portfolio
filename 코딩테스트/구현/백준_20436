@@ -1,0 +1,50 @@
+# zoac 3
+
+sl, sr = input().split()
+keyboard=[['q','w','e','r','t','y','u','i','o','p'],
+          ['a','s','d','f','g','h','j','k','l'],
+          ['z','x','c','v','b','n','m']]
+
+mo=['y','u','i','o','p','h','j','k','l','b','n','m']
+strings = list(input())
+
+xl,yl, xr,yr=None, None,None,None      
+        
+for i in range(len((keyboard))):
+    if sl in keyboard[i]:
+        xl=i
+        yl= keyboard[i].index(sl)
+    if sr in keyboard[i]:
+        xr=i
+        yr=keyboard[i].index(sr)
+            
+
+
+
+count=0
+
+for string in strings:
+    count+=1
+    if string in mo:
+        for i in range(len(keyboard)):
+            if string in keyboard[i]:
+                nr=i
+                mr= keyboard[i].index(string)
+                count += abs(nr - xr) + abs(mr - yr)
+                xr=nr
+                yr=mr
+                break
+                
+    else:
+        for i in range(len(keyboard)):
+            if string in keyboard[i]:
+                nr = i 
+                mr = keyboard[i].index(string)
+                
+
+                count += abs(nr - xl) + abs(mr - yl)
+                xl = nr
+                yl = mr
+                break
+            
+print(count)

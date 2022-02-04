@@ -1,0 +1,30 @@
+n = int(input())
+m = int(input())
+
+adj=[[]for _ in range(n+1)]
+visited=[]
+
+count=0
+
+for _ in range(m):
+    x, y = map(int, input().split())
+    
+    adj[x].append(y)
+    adj[y].append(x)
+    
+
+    
+    
+def dfs(adj, start_node):
+    need_visit = list()
+    need_visit.append(start_node)
+    
+    while need_visit:
+        global count
+        node = need_visit.pop()
+        if node not in visited:
+            visited.append(node)
+            need_visit.extend(adj[node])
+            count+=1
+dfs(adj,1)
+print(count-1)
